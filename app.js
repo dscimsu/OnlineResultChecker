@@ -15,6 +15,7 @@ const cloudinary = require("cloudinary").v2;
 
 const pagesRouter = require("./routes/pages");
 const universityRouter = require("./routes/university");
+const studentRouter = require("./routes/student");
 
 const ENV = require("dotenv");
 ENV.config();
@@ -79,6 +80,7 @@ app.use(function (req, res, next) {
 
 app.use(pagesRouter);
 app.use("/university", universityRouter);
+app.use("/student", studentRouter);
 
 
 // catch 404 and forward to error handler

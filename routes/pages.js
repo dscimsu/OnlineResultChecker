@@ -13,8 +13,6 @@ router.get('/contact', pagesController.getContactPage);
 router.get("/about", pagesController.getAboutPage);
 
 
-// check results route
-router.get("/checkresults",pagesController.getCheckResultPage );
 
 
 module.exports = router;
