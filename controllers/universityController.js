@@ -18,13 +18,13 @@ const parser = multer({ storage: storage });
 
 //getting calculator page
 exports.getCalculatorPage = (req, res, next) => {
-    res.render('university/app', { csrfToken: req.csrfToken() });
+    res.render('university/app', { csrfToken: req.csrfToken(), path: "/university/dashboard" });
 }
 
 
 //getting save page form
 exports.getSavePage = (req, res, next) => {
-    res.render('university/save', { csrfToken: req.csrfToken() });
+    res.render('university/save', { csrfToken: req.csrfToken(), path: "/university/dashboard" });
 }
 
 // for saving calculated results to session
@@ -66,7 +66,7 @@ exports.getDeleteForm = (req, res, next) => {
             if (err) {
                 return errHandler(err);
             }
-            res.render('university/delete', { result: result });
+            res.render('university/delete', { result: result, path: "/university/dashboard" });
         });
 }
 
@@ -110,9 +110,15 @@ exports.getDashboard = (req, res, next) => {
 
         res.render('university/dashboard', {
             csrfToken: req.csrfToken(),
-            results: results, user: user, cgpa: cgpa, nocgpa: cgpa == null,
-            messages: messages, hasErrors: messages.length > 0,
-            successMsg: successMsg, noMessages: !successMsg
+            results: results,
+            user: user,
+            cgpa: cgpa,
+            nocgpa: cgpa == null,
+            messages: messages,
+            hasErrors: messages.length > 0,
+            successMsg: successMsg,
+            noMessages: !successMsg,
+            path: "/university/dashboard"
         });
 
     });
@@ -123,7 +129,13 @@ exports.getEditPage = (req, res, next) => {
     let messages = req.flash('error');
 
     let user = req.user;
-    res.render('university/edit', { csrfToken: req.csrfToken(), user: user, messages: messages, hasErrors: messages.length > 0, });
+    res.render('university/edit', {
+        csrfToken: req.csrfToken(),
+        user: user,
+        messages: messages,
+        hasErrors: messages.length > 0,
+        path: "/university/dashboard"
+    });
 
 }
 
@@ -230,7 +242,12 @@ exports.viewIndividualResult = (req, res, next) => {
                 resultData = Object.values(singleResult.resultsData);
                 resultKey = Object.keys(singleResult.resultsData);
             });
-            res.render('university/view', { result: result, resultData: resultData, resultKey: resultKey });
+            res.render('university/view', {
+                result: result,
+                resultData: resultData,
+                resultKey: resultKey,
+                path: "/university/dashboard"
+            });
         });
 }
 
@@ -244,7 +261,12 @@ exports.logoutUser = (req, res, next) => {
 exports.getSignInPage = (req, res, next) => {
     let messages = req.flash('error');
     console.log(messages);
-    res.render('university/signin', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
+    res.render('university/signin', {
+        csrfToken: req.csrfToken(),
+        messages: messages,
+        hasErrors: messages.length > 0,
+        path: "/university/signin"
+    });
 }
 
 // redirects the user to the last visited page before login or signup
@@ -262,7 +284,12 @@ exports.normalRedirect = (req, res, next) => {
 
 exports.getSignUpPage = (req, res, next) => {
     let messages = req.flash('error');
-    res.render('university/signup', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
+    res.render('university/signup', {
+        csrfToken: req.csrfToken(),
+        messages: messages,
+        hasErrors: messages.length > 0,
+        path: "/university/signup"
+    });
 }
 
 //function to check if the user is logged in
@@ -285,8 +312,8 @@ exports.isNotLoggedIn = (req, res, next) => {
 }
 
 
-exports.imageParser = (next)=>{
+exports.imageParser = (next) => {
 
- parser.single("image");
+    parser.single("image");
     return next;
 }
