@@ -1,7 +1,7 @@
 const passport = require('passport');
-const User = require('../models/user');
+const User = require('../models/university/user');
 const LocalStrategy = require('passport-local').Strategy;
-const validator = require('express-validator');
+
 
 passport.serializeUser(function (user, done) {
     done(null, user.id);

@@ -1,6 +1,5 @@
-
-let Result = require('../models/result');
-let User = require('../models/user');
+let Result = require('../models/university/result');
+let User = require('../models/university/user');
 const multer = require("multer");
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
@@ -19,13 +18,13 @@ const parser = multer({ storage: storage });
 
 //getting calculator page
 exports.getCalculatorPage = (req, res, next) => {
-    res.render('app', { csrfToken: req.csrfToken() });
+    res.render('university/app', { csrfToken: req.csrfToken() });
 }
 
 
 //getting save page form
 exports.getSavePage = (req, res, next) => {
-    res.render('save', { csrfToken: req.csrfToken() });
+    res.render('university/save', { csrfToken: req.csrfToken() });
 }
 
 // for saving calculated results to session
@@ -67,7 +66,7 @@ exports.getDeleteForm = (req, res, next) => {
             if (err) {
                 return errHandler(err);
             }
-            res.render('delete', { result: result });
+            res.render('university/delete', { result: result });
         });
 }
 
@@ -109,7 +108,7 @@ exports.getDashboard = (req, res, next) => {
 
         let user = req.user;
 
-        res.render('user/dashboard', {
+        res.render('university/dashboard', {
             csrfToken: req.csrfToken(),
             results: results, user: user, cgpa: cgpa, nocgpa: cgpa == null,
             messages: messages, hasErrors: messages.length > 0,
@@ -124,7 +123,7 @@ exports.getEditPage = (req, res, next) => {
     let messages = req.flash('error');
 
     let user = req.user;
-    res.render('user/edit', { csrfToken: req.csrfToken(), user: user, messages: messages, hasErrors: messages.length > 0, });
+    res.render('university/edit', { csrfToken: req.csrfToken(), user: user, messages: messages, hasErrors: messages.length > 0, });
 
 }
 
@@ -231,7 +230,7 @@ exports.viewIndividualResult = (req, res, next) => {
                 resultData = Object.values(singleResult.resultsData);
                 resultKey = Object.keys(singleResult.resultsData);
             });
-            res.render('user/view', { result: result, resultData: resultData, resultKey: resultKey });
+            res.render('university/view', { result: result, resultData: resultData, resultKey: resultKey });
         });
 }
 
@@ -245,7 +244,7 @@ exports.logoutUser = (req, res, next) => {
 exports.getSignInPage = (req, res, next) => {
     let messages = req.flash('error');
     console.log(messages);
-    res.render('user/signin', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
+    res.render('university/signin', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
 }
 
 // redirects the user to the last visited page before login or signup
@@ -263,7 +262,7 @@ exports.normalRedirect = (req, res, next) => {
 
 exports.getSignUpPage = (req, res, next) => {
     let messages = req.flash('error');
-    res.render('user/signup', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
+    res.render('university/signup', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
 }
 
 //function to check if the user is logged in
