@@ -49,7 +49,10 @@
 			<ul>
 				<li><a class="<%= path === '/' ? 'btn btn-warning' : '' %>" href="/">Home</a></li>
 				<li><a class="<%= path === '/about' ? 'btn btn-warning' : '' %> " href="/about">FAQS</a></li>
-				<li><a class="<%= path === '/contact' ? 'btn btn-warning' : '' %>" href="/contact">Contact Us</a></li>
+        <li><a class="<%= path === '/contact' ? 'btn btn-warning' : '' %>" href="/contact">Contact Us</a></li>
+        <% if( path === '/checkresult' ) { %>
+          <li><a class="<%= path === '/checkresult' ? 'btn btn-warning' : '' %>" href="/contact">Check Result</a></li>
+        <% } %>
         <% if( isLogin ) { %>
 				<li><a class="<%= path === '/university/dashboard' ? 'btn btn-warning ' : '' %>" href="/university/dashboard">Dashboard</a></li>
 				<li><a href="/university/logout" class="btn btn-danger">Logout</a></li>
