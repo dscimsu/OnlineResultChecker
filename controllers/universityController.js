@@ -34,7 +34,7 @@ exports.saveResultsToSession = (req, res, next) => {
     delete objectData._csrf;
     req.session.resultData = objectData;
     req.session.gp = req.body.gp;
-    res.redirect("/university/save");
+    res.redirect('/university/save');
 }
 
 //saving the result to database
@@ -253,7 +253,7 @@ exports.normalRedirect = (req, res, next) => {
     if (req.session.oldUrl) {
         let oldLink = req.session.oldUrl;
         req.session.oldUrl = null;
-        res.redirect(oldLink);
+        res.redirect(`/university${oldLink}`);
     } else {
         res.redirect('/university/dashboard');
     }
