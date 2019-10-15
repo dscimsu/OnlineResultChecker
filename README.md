@@ -25,7 +25,7 @@ git remote add upstream git://github.com/dscimsu/resultTracker.git
 Pull the code to Your project directory and set it up by running the following command
 ```bash
 git fetch upstream
-git checkout develop
+git checkout master
 npm install
 node index
  
