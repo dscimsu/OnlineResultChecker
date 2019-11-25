@@ -1,4 +1,9 @@
 # Result-Tracker
+
+
+
+RESULT TRACKER APP OF DSC IMSU
+
 This is a progressive web app which enables students to calculate and keep track of their results for future references.
 
 
