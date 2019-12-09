@@ -4,6 +4,18 @@ let csrf = require('csurf');
 const passport = require('passport');
 let Result = require('../models/result');
 let User = require('../models/user');
+const multer = require("multer");
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
+
+
+const storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: "Profile",
+  allowedFormats: ["jpg", "png"],
+  transformation: [{ width: 500, height: 500, crop: "limit" }]
+});
+const parser = multer({ storage: storage });
 
 let csrfProtection = csrf();
 router.use(csrfProtection);
@@ -64,7 +76,7 @@ router.get('/dashboard', isLoggedIn, function (req, res, next) {
     const cgpa = gpSum / arrayOfGp.length;
 
     let user = req.user;
-    res.render('user/dashboard', {
+    res.render('user/dashboard', {csrfToken: req.csrfToken(),
       results: results, user: user, cgpa: cgpa, nocgpa: cgpa == null,
       messages: messages, hasErrors: messages.length > 0,
       successMsg: successMsg, noMessages: !successMsg
@@ -84,14 +96,11 @@ router.get('/edit', isLoggedIn, function (req, res, next) {
 router.post('/edit', isLoggedIn, function (req, res, next) {
 
   User.findOne({ email: req.user.email }, function (err, user) {
-
     // todo: don't forget to handle err
-
     if (err) {
       req.flash('error', 'No account found');
       return res.redirect('/edit');
     }
-
     if (!user) {
       req.flash('error', 'No account found');
       return res.redirect('/edit');
@@ -104,6 +113,7 @@ router.post('/edit', isLoggedIn, function (req, res, next) {
     let school = req.body.school.trim();
     let department = req.body.department.trim();
 
+
     // validate 
     if (!email || !name || !matnumber || !school || !department) {
       req.flash('error', 'One or more fields are empty');
@@ -115,7 +125,6 @@ router.post('/edit', isLoggedIn, function (req, res, next) {
     user.matnumber = req.body.matnumber;
     user.school = req.body.school;
     user.department = req.body.department;
-
     // don't forget to save!
     user.save(function (err) {
 
@@ -129,7 +138,51 @@ router.post('/edit', isLoggedIn, function (req, res, next) {
     });
   });
 
+});
+
+
+router.post('/upload', parser.single("image"), isLoggedIn, function (req, res, next) {
+
+  User.findOne({ email: req.user.email }, function (err, user) {
+    // for cloudinary upload
+    //console.log(req.file) // to see what is returned to you
+
+    // todo: don't forget to handle err
+
+    if (err) {
+      req.flash('error', 'No account found');
+      return res.redirect('/edit');
+    }
+
+
+    if (!user) {
+      req.flash('error', 'No account found');
+      return res.redirect('/edit');
+    }
+    if (!req.file) {
+      req.flash('error', "No Image Selected");
+      return res.redirect('/dashboard');
+    }
+
+    user.image = req.file.url;
+
+    // don't forget to save!
+    user.save(function (err) {
+
+      // todo: don't forget to handle err
+      if (err) {
+        req.flash('error', 'Sorry error occured');
+        return res.redirect('/edit'); // modified
+      }
+      req.flash('success', 'Image Uploaded Successfully');
+      res.redirect('/dashboard');
+    });
+  });
+
 })
+
+
+
 
 
 

@@ -11,7 +11,19 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="images/emptyimage.jpeg" width="150px" class="avatar" alt="Add Your picture">
+                    {{#if user.image}}
+                    <img src="{{ user.image }}" width="100px" class="avatar" alt="No internet access">
+                    {{else}}
+                    <img src="images/emptyimage.jpeg" width="100px" class="avatar" alt="Add Your picture">
+                    {{/if}}
+                    <form method="post" action="/upload?_csrf={{ csrfToken }}" novalidate enctype="multipart/form-data">
+                        <div class="form-group">
+                           
+                            <input type="file" name="image" required >
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{ csrfToken }}" re>
+                        <input type="submit" value="Upload Image" class="btn btn-primary"><br><br>
+                    </form>
                     <ul>
                         <li>
                             <h3>{{ user.name }}</h3>
@@ -25,9 +37,9 @@
                         <hr>
                         <li>
                             <h4>CGPA<button class='btn btn-success'>
-                                {{#if cgpa}}
+                                    {{#if cgpa}}
                                     {{cgpa}}
-                                {{else}}
+                                    {{else}}
                                     No Grade Point</button>
                                 {{/if}}
                         </li>
