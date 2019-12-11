@@ -4,11 +4,11 @@ let bcrypt = require('bcryptjs');
 
 let userSchema = new Schema({
     name:{type: String, required:true},
-    email: {type: String, required:true , unique: true},
-    matnumber:{type: String, },
-    school:{type: String, },
-    department:{type: String,},
-    password:{type: String,},
+    email: {type: String, required:true},
+    password:{type: String},
+    matnumber:{type: String},
+    school:{type: String },
+    department:{type: String},
     image:{type: String}
 
 });

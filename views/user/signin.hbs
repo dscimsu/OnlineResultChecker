@@ -1,15 +1,6 @@
-<link rel="stylesheet" href="stylesheets/style.css">
-
-{{!-- <br><br><br><br>
-        <header id="main-header" class="bg-primary text-white p-4 mb-3">
-                <div class="container">
-                    <h1 id="header-title">Result Tracker</h1>
-                </div>
-            </header> --}}
-
-<div class="container-fluid" >
+<div class="container-fluid">
     <div class="row">
-        <div class="col-lg-3  bg bg-primary">
+        <div class="col-lg-3  bg bg-primary hidebg">
             <br><br><br><br> <br> <br><br><br><br> <br>
             <br><br><br><br>
 
@@ -37,7 +28,7 @@
                 <h3>
                     <center>Fill The Following Details</center>
                 </h3>
-                     
+
                 <form action="/signin" method="POST" class="">
 
                     <div class="form-group">
@@ -49,14 +40,14 @@
                         <label for="title">Password:</label>
                         <input type="password" name="password" class="form-control" placeholder="Password">
                     </div>
-                     
+
                     <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                     <input type="submit" value="Sign In" class="btn btn-primary btn block col-md-12"><br><br>
                     <p>Dont have an account?<a href="/signup" id="mybtn">SIGN UP</a></p>
                 </form>
-           
+
             </div>
-           
+
         </div>
         <div class="col-md-2 col-md-offset-2"></div>
     </div>

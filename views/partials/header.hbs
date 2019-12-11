@@ -1,85 +1,31 @@
-<header class="header trans_200">
-	<!-- Header Content -->
-	<div class="header_container">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="header_content d-flex flex-row align-items-center justify-content-start">
-						<nav class="main_nav ml-auto">
+<!--==========================
+  Header
+  ============================-->
+<header id="header" class="fixed-top">
+	<div class="container">
 
-							<ul>
-								<li><a href="/">Home</a></li>
-								<li><a href="/about">FAQS</a></li>
-								<li><a href="/contact">Contact Us</a></li>
-								{{# if isLogin }}
-								<li><a href="/dashboard">Dashboard</a></li>
-								<li><a href="/logout" class="btn btn-danger">Logout</a></li>
-								{{ else }}
-								<li><a class="btn btn-warning" href="/signup">SignUp</a></li>
-								<li><a href="/signin">SignIn</a></li>
-								{{/if }}
-
-
-
-							</ul>
-						</nav>
-						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
-					</div>
-				</div>
-			</div>
+		<div class="logo float-left">
+			<!-- Uncomment below if you prefer to use an image logo -->
+			 <h4 class="text-light"><a href="#header"><span>Result Tracker</span></a></h4> 
+			{{!-- <a href="#intro" class="scrollto"><img src="img/result.png"  width='50px' height='500px'alt="" class="img-fluid"></a> --}}
 		</div>
-	</div>
 
-	<!-- Logo -->
-	 <div class="logo_container_outer">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="logo_container">
-						<div class="logo_sub">
-							<span>
-								<img style="max-width: 100px;" class="logo" src="/images/result.png">
-							</span>
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> 
-
-</header>
-
-<!-- Menu -->
-
-<div class="menu_container menu_mm">
-
-	<!-- Menu Close Button -->
-	<div class="menu_close_container">
-		<div class="menu_close"></div>
-	</div>
-
-	<!-- Menu Items -->
-	<div class="menu_inner menu_mm">
-		<div class="menu menu_mm">
-			<ul class="menu_list menu_mm">
-				<li class="menu_item menu_mm"><a href="/">Home</a></li>
-				<li class="menu_item menu_mm"><a href="/about">FAQS</a></li>
-				<li class="menu_item menu_mm"><a href="/contact">Contact Us</a></li>
+		<nav class="main-nav float-right d-none d-lg-block">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">FAQS</a></li>
+				<li><a href="/contact">Contact Us</a></li>
 				{{# if isLogin }}
-				<li class="menu_item menu_mm"><a href="/dashboard">Dashboard</a></li>
-				<li class="menu_item menu_mm"><a href="/logout" class="btn btn-danger">Logout</a></li>
+				<li><a href="/dashboard">Dashboard</a></li>
+				<li><a href="/logout" class="btn btn-danger">Logout</a></li>
 				{{ else }}
-				<li class="menu_item menu_mm"><a class="btn btn-warning" href="/signup">Signup</a></li>
-				<li class="menu_item menu_mm"><a href="/signin">Signin</a></li>
+				<li><a class="btn btn-warning" href="/signup">SignUp</a></li>
+				<li><a href="/signin">SignIn</a></li>
 				{{/if }}
-			</ul>
-		</div>
-		<div class="menu_extra">
-			<div class="menu_appointment"><a href="#">Developer Student Clubs Imsu</a></div>
-			<div class="menu_emergencies">Team Members</div>
-		</div>
+				<ul>
+
+				</ul>
+		</nav><!-- .main-nav -->
 
 	</div>
-
-</div>
+</header><!-- #header -->

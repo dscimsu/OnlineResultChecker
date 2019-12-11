@@ -1,40 +1,42 @@
-<link rel="stylesheet" href="stylesheets/style.css">
-<div class="container" style="margin-top: 200px; z-index: 100;">
-    <header id="main-header" class="" >
-        <h1 id="header-title">Result Tracker</h1>
-    </header>
 
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div id="main" class="card card-body">
-                <h3 class="title">Welcome</h3>
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <form action="/app" method="POST" id='form' class="contact-form">
+<main id="main">
+    <section id="about" style="margin-top:40px; ">
+        <div class="container" >
+            <header class="section-header" id="main-header" >
+                <h3 id="header-title">Result Tracker</h3>
+            </header>
+            <div class="row about-container" >
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div id="main" class="card card-body">
+                        <h3 class="title">Welcome</h3>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <form action="/app" method="POST" id='form' class="contact-form">
 
-                            <input style="color:black" type="number" id="loopNumber" class="form-control mb-2"
-                                placeholder="Enter number of courses" name="NumberOfCourses" max="10"><br>
-                            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                            <button style="color:white" id="button"
-                                class="form-control mb-2 btn btn-primary">ENTER</button>
-                            <div class="card card-body" id="resultDisplay" style="display: none;"></div>
-                            <div class="form-group" id="div">
-                                <button id="reset" class="btn btn-primary" style="display: none;">RESET</button>
-                                <button id="save" class="btn btn-primary" type="submit"
-                                    style="display: none;float: right">PROCEED TO SAVE</button>
+                                    <input style="color:black" type="number" id="loopNumber" class="form-control mb-2"
+                                        placeholder="Enter number of courses" name="NumberOfCourses" max="10"><br>
+                                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                                    <button style="color:white" id="button"
+                                        class="form-control mb-2 btn btn-primary">ENTER</button>
+                                    <div class="card card-body" id="resultDisplay" style="display: none;"></div>
+                                    <div class="form-group" id="div">
+                                        <button id="reset" class="btn btn-primary" style="display: none;">RESET</button>
+                                        <button id="save" class="btn btn-primary" type="submit"
+                                            style="display: none;float: right">PROCEED TO SAVE</button>
 
-                        </form>
+                                </form>
+                            </div>
+
+                        </div>
+
                     </div>
-
                 </div>
-
             </div>
         </div>
-    </div>
-
-</div>
+    </section>
 
 
-<script type="text/javascript" src="javascripts/app.js"></script>
+</main>
+<script type="text/javascript" src="js/app.js"></script>

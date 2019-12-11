@@ -1,61 +1,62 @@
-<link rel="stylesheet" href="stylesheets/style.css">
 
 
 
-<div class="container-fluid" >
-<div class="row">
-    <div class="col-lg-3  bg bg-primary">
-        <br><br><br><br> <br> <br><br><br><br> <br>
-        <br><br><br><br> <br>
 
-        <h2 style="color: white;">ResultTracker</h2>
-    </div>
-    <div class="col-md-2 col-md-offset-2"></div>
-    <div class="col-md-5 col-md-offset-5 ">
-        <br><br><br><br> <br>
-        <div class="shadow p-5">
-            <h3>
-                <center>Create An Account</center>
-            </h3>
-            <div>
-                {{#if hasErrors}}
-                <div class="alert alert-danger">
-                    <ul>
-                        {{# each messages }}
-                        <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3  bg bg-primary hidebg">
+            <br><br><br><br> <br> <br><br><br><br> <br>
+            <br><br><br><br> <br>
 
-                </div>
-                {{/if}}
-            </div>
-            <form action="/signup" method="POST">
-                <div class="form-group">
-                    <label for="title">Name:</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="title">Email:</label>
-                    <input type="" name="email" class="form-control" placeholder="Enter Your Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="title">Password:</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
-                </div>
-                <div class="form-group">
-                        <label for="title">Confirm-Password:</label>
-                        <input type="password" name="password2" class="form-control" placeholder="Confirm-Password" required>
-                    </div>
-                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                <input type="submit" value="Sign Up" class="btn btn-primary btn block col-md-12"><br><br>
-                <p>Already have an account?<a href="/signin" id="mybtn">SIGN IN</a></p>
-            </form>
+            <h2 style="color: white;">ResultTracker</h2>
         </div>
-        
-        
-            
-       
+        <div class="col-md-2 col-md-offset-2"></div>
+        <div class="col-md-5 col-md-offset-5 ">
+            <br><br><br><br> <br>
+            <div class="shadow p-5">
+                <h3>
+                    <center>Create An Account</center>
+                </h3>
+                <div>
+                    {{#if hasErrors}}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {{# each messages }}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+
+                    </div>
+                    {{/if}}
+                </div>
+                <form action="/signup" method="POST">
+                    <div class="form-group">
+                        <label for="title">Name:</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Email:</label>
+                        <input type="" name="email" class="form-control" placeholder="Enter Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Password:</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Confirm-Password:</label>
+                        <input type="password" name="password2" class="form-control" placeholder="Confirm-Password"
+                            required>
+                    </div>
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                    <input type="submit" value="Sign Up" class="btn btn-primary btn block col-md-12"><br><br>
+                    <p>Already have an account?<a href="/signin" id="mybtn">SIGN IN</a></p>
+                </form>
+            </div>
+
+
+
+
+        </div>
+        <div class="col-md-2 col-md-offset-2"></div>
     </div>
-    <div class="col-md-2 col-md-offset-2"></div>
-</div>
 </div>
