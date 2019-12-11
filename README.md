@@ -52,16 +52,16 @@ Go to your root folder and create a new file and save it as
 ```
 ### Copy the content of the .env.example file and paste it inside the .env file you created
 
-### Then go to your app.js file in your root folder(LINE 28) AND REPLACE
-```
-process.env.DATABASE_URL
-```
-### WITH
-```
-process.env.LOCAL_DB_URL
-```
+## PROFILE IMAGE UPLOAD SETUP
+We are using cloudinary api to upload our images to cloudinary
 
-To start the application on your localhost run the command
+### Follow the link below to create and account and obtain your own Api keys
+https://cloudinary.com
+
+After creating an account take your Api keys and fill the empty keys in the .env file.
+
+
+## To start the application on your localhost run the command
 
 ```
   npm install nodemon -g
