@@ -1,6 +1,6 @@
 # Result-Tracker
 This is a progressive web app which enables students to calculate and keep track of their results for future references.
-Click the link to view Project https://dscimsu-result-tracker.herokuapp.com/
+
 
 *Welcome, and thank you for contributing to this project. Please take your time to study this document carefully before making any changes to the codebase, to ensure you're on the same page with the rest of the team and we can all collaborate seamlessly.* 
 
