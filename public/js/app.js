@@ -195,6 +195,7 @@
                         display.style[property] = value;
                     });
                     display.innerHTML = `GRADE POINT: ${mgp}`;
+
                 } else if (mgp == 0) {
                     let style = { margin: '5px', border: '2px solid blue', padding: '24px', borderRadius: '12px', color: 'white', backgroundColor: 'rgb(6, 192, 167)' }
                     Object.entries(style).map(entry => {
@@ -239,6 +240,7 @@
                         display.style[property] = value;
                     });
                     savebtn.style.display = 'initial';
+                    title.innerHTML = "1st class grade";
                 } else if (mgp >= 3.5 && mgp < 4.5) {
                     let style = {
                         textAlign: 'center', margin: '5px', border: '2px solid #0000ff',
@@ -251,6 +253,7 @@
                         display.style[property] = value;
                     });
                     savebtn.style.display = 'initial';
+                    title.innerHTML = "2nd upper class grade";
                 }
                 else if (mgp >= 3 && mgp < 3.5) {
 
@@ -266,6 +269,7 @@
                     });
 
                     savebtn.style.display = 'initial';
+                    title.innerHTML = "2nd class lower grade";
                 } else if (mgp >= 2 && mgp < 3) {
                     let style = {
                         textAlign: 'center', margin: '5px', border: '2px solid #e15000',
@@ -279,6 +283,7 @@
                     });
 
                     savebtn.style.display = 'initial';
+                    title.innerHTML = "3rd class grade";
                 } else if (mgp >= 0 && mgp < 2) {
 
                     let style = {
@@ -293,6 +298,7 @@
                     });
 
                     savebtn.style.display = 'initial';
+                    title.innerHTML = "Pass grade";
                 } else {
                     let style = {
                         textAlign: 'center', margin: '5px', border: '2px solid #ff0000',

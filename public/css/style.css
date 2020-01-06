@@ -243,11 +243,6 @@ h6 {
 
 /* Desktop Navigation */
 
-.main-nav {
-  /* Drop Down */
-  /* Deep Drop Down */
-}
-
 .main-nav,
 .main-nav * {
   margin: 0;
@@ -261,11 +256,6 @@ h6 {
   float: left;
 }
 
-.main-nav > ul > li.active {
-  background-color: #262626;
-  color: white; 
-}
-
 .main-nav a {
   display: block;
   position: relative;
@@ -277,10 +267,14 @@ h6 {
   font-weight: 500;
 }
 
+.main-nav > ul > li.active > a {
+  background-color: #5b5f46;
+  color: white; 
+}
+
 .main-nav a:hover,
-.main-nav .active > a,
 .main-nav li:hover > a {
-  color: #007bff;
+  color: #f82509;
   text-decoration: none;
 }
 
