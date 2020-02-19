@@ -1,0 +1,50 @@
+exports. getDashboard=function (req, res, next) {
+
+    res.render('index', { title: 'ResultTracker' });
+  }
+  exports.getDataAndSaveToSession = function (req, res, next) {
+      let objectData = req.body;
+        delete objectData._csrf;
+        req.session.resultData = objectData;
+        req.session.gp = req.body.gp;
+        res.redirect('save');
+      }
+      exports.saveResult = isLoggedIn, function (req, res, next) {
+  
+          let result = new Result({
+            user: req.user,
+            semester: req.body.semester,
+            level: req.body.level,
+            year: req.body.year,
+            gp: req.session.gp,
+            resultsData: req.session.resultData
+          });
+          result.save(function (err, result) {
+            if (req.session.resultData == null) {
+              req.flash('error', 'SORRY NO CALCULATION WAS MADE');
+            } else {
+              req.session.resultData = null;
+              req.session.gp = null;
+              req.flash('success', 'Saved Successfully');
+            }
+        
+            res.redirect('/dashboard');
+          });
+        
+        
+        
+        }
+  
+        exports.getShow = function (req, res, next) {
+          res.render('user/show');
+        }
+        exports.userAbout =function (req, res, next) {
+          res.render('about');
+        }
+        function isLoggedIn(req, res, next) {
+          if (req.isAuthenticated()) {
+            return next();
+          }
+          req.session.oldUrl = req.url;
+          res.redirect('/signin');
+        }
