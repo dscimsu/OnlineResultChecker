@@ -23,14 +23,14 @@ Set up your origin and upstream remotes by running the following commands
 ```bash
 git remote add origin https://github.com/{YOUR-GITHUB-USERNAME}/resultTracker.git
 
-git remote add upstream https://github.com/dscimsu/resultTracker.git
+git remote add upstream https://github.com/dscimsu/OnlineResultChecker.git
 
 ```
 
 Pull the code to Your project directory and set it up by running the following command
 ```bash
 git fetch upstream
-git checkout master
+git checkout develop
 ```
 To install the dependencies the app is using run the command (ensure you have node installed)
 ```
@@ -78,8 +78,8 @@ git pull upstream
 git push origin develop
 
 ```
-Then from your develop branch you create a pull request to your master,
-Then from your master branch in your forked repository, create a pull request to the 
-dscimsu develop branch.
 
+Then from your develop branch you can create a pull request to dscimsu develop branch,
+
+Please ensure your pull request is working as intended, before you make it.
 # Thanks for contributing.
