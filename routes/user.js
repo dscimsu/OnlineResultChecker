@@ -212,6 +212,7 @@ router.get('/logout', isLoggedIn, function (req, res, next) {
 
 router.get('/signin', isNotLoggedIn, function (req, res, next) {
   let messages = req.flash('error');
+  console.log(messages);
   res.render('user/signin', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
 });
 

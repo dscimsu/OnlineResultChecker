@@ -49,13 +49,13 @@
 				<li><a href="/">Home</a></li>
 				<li><a href="/about">FAQS</a></li>
 				<li><a href="/contact">Contact Us</a></li>
-				{{# if isLogin }}
+        <% if( isLogin ) { %>
 				<li><a href="/dashboard">Dashboard</a></li>
 				<li><a href="/logout" class="btn btn-danger">Logout</a></li>
-				{{ else }}
+				<% } else { %>
 				<li><a class="btn btn-warning" href="/signup">SignUp</a></li>
 				<li><a href="/signin">SignIn</a></li>
-				{{/if }}
+        <% } %>
 				<ul>
 
 				</ul>
