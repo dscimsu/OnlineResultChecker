@@ -17,7 +17,7 @@
 
                                     <input style="color:black" type="number" id="loopNumber" class="form-control mb-2"
                                         placeholder="Enter number of courses" name="NumberOfCourses" max="10"><br>
-                                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                     <button style="color:white" id="button"
                                         class="form-control mb-2 btn btn-primary">ENTER</button>
                                     <div class="card card-body" id="resultDisplay" style="display: none;"></div>

@@ -76,6 +76,7 @@ router.get('/dashboard', isLoggedIn, function (req, res, next) {
     const cgpa = gpSum / arrayOfGp.length;
 
     let user = req.user;
+  
     res.render('user/dashboard', {csrfToken: req.csrfToken(),
       results: results, user: user, cgpa: cgpa, nocgpa: cgpa == null,
       messages: messages, hasErrors: messages.length > 0,

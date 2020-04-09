@@ -2,7 +2,8 @@
 
 
 <div class="container-fluid">
-    {{# each result}}
+    <% for (let i=0; i< result.length; i++ )  { %>
+
     <div class="row">
         <div class="col-lg-3  bg bg-primary hidebg">
             <br><br><br><br> <br> <br><br><br><br> <br>
@@ -17,24 +18,13 @@
         <div class="col-md-5 col-md-offset-5">
             <br><br><br><br> <br>
             <div class="shadow p-5">
-                <h3>{{ this.semester}} {{ this.level }}</h3>
-                <div>
-                    {{#if hasErrors}}
-                    <div class="alert alert-danger">
-                        <ul>
-                            {{# each messages }}
-                            <li>{{this}}</li>
-                            {{/each}}
-                        </ul>
-
-                    </div>
-                    {{/if}}
-                </div>
+                <h3><%= result[i].semester %>  <%= result[i].level %></h3>
+               
                 <h5>
                     <center>ARE YOU SURE YOU WANT TO DELETE</center>
                 </h5>
                      
-                <a class="btn btn-danger btn block col-md-12" href="/delete_confirmed/{{ this.id }}" >Delete</a>
+                <a class="btn btn-danger btn block col-md-12" href="/delete_confirmed/<%= result[i].id %>" >Delete</a>
 <hr>
                 <a class="btn btn-primary" href="/dashboard">Back</a>
            
@@ -47,7 +37,7 @@
 
 
 
-    {{/each}}
+    <% } %>
 </div>
 
 <%- include('includes/footer.ejs') %>

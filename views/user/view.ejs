@@ -2,7 +2,7 @@
 
 
 <div class="container" style="margin-top:250px; z-index: 100">
-    {{# each result}}
+    <% for (let i=0; i<  result.length; i++ )  { %>
     <table class="table">
         <tr class="thead-dark">
             <th>Year</th>
@@ -11,34 +11,37 @@
             <th>Grade Point</th>
         </tr>
         <tr>
-            <td> {{ this.year }}</td>
-            <td>{{ this.level }}</td>
-            <td>{{ this.semester }}</td>
-            <td>{{ this.gp }}</td>
+            <td><%= result[i].year %></td>
+            <td><%= result[i].level %></td>
+            <td><%= result[i].semester %></td>
+            <td><%= result[i].gp %></td>
         </tr>
     </table>
 
 
 
-    {{/each}}
+    <% } %>
     <hr>
     <div style='overflow-x:scroll;'>
 
 
         <table class="table">
             <tr class="thead-dark">
-                {{# each this.resultKey}}
+                <% for (let i=0; i< resultKey.length; i++ )  { %>
 
-                <th>{{ this }}</th>
+                <th><%= resultKey[i] %></th>
 
 
-                {{/each}}
+                <% } %>
             </tr>
             <tr>
-                {{# each this.resultData}}
-                <td>{{ this }}</td>
+                <% for (let i=0; i< resultData.length; i++ )  { %>
 
-                {{/each}}
+                    <th><%= resultData[i] %></th>
+    
+    
+                    <% } %>
+                </tr>
             </tr>
         </table>
         
