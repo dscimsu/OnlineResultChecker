@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const expressHbs = require('express-handlebars');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
@@ -12,11 +11,8 @@ const mongoose = require('mongoose');
 const validator= require('express-validator'); 
 const MongoStore = require('connect-mongo')(session);
 
+
 const cloudinary = require("cloudinary").v2;
-
-
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/user');
  
 const ENV = require('dotenv');
 ENV.config();
@@ -54,9 +50,12 @@ cloudinary.config({
 
 
 // view engine setup
-app.engine('.hbs',expressHbs({defualtLayout:'layout',extname:'.hbs'}));
-// app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', '.hbs');
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/user');
 
 app.use(logger('dev'));
 app.use(bodyParser .json());
@@ -88,14 +87,11 @@ app.use(function(req,res,next){
   next();
 });
 
-app.use('/', usersRouter);
-app.use('/', indexRouter);
+app.use(usersRouter);
+app.use(indexRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -106,6 +102,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.use(function(req, res, next) {
+  res.status(404).render('404');
+  next(createError(404));
 });
 
 module.exports = app;
