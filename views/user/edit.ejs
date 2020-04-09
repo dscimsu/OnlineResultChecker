@@ -15,43 +15,43 @@
                 <center>UPDATE YOUR ACCOUNT DETAILS</center>
             </h3>
             <div>
-                {{#if hasErrors}}
-                <div class="alert alert-danger">
-                    <ul>
-                        {{# each messages }}
-                        <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
+                <% if (hasErrors) { %>
+                    <div class="alert alert-danger">
+                        <ul>
+                            <% for (let i=0; i<  messages.length; i++ )  { %>
+                                <li><%= messages[i] %></li>
+                            <% } %>
+                        </ul>
 
-                </div>
-                {{/if}}
+                    </div>
+                    <% } %>
             </div>
             <form method="post" action="/edit" > 
                 <div class="form-group">
                     <label for="title">Name:</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter You Name" value="{{ user.name}}" required>
+                    <input type="text" name="name" class="form-control" placeholder="Enter You Name" value="<%= user.name  %>" required>
                 </div>
                 <div class="form-group">
                     <label for="title">Email:</label>
-                    <input type="" name="email" class="form-control" placeholder="Enter Your Email" value="{{ user.email}}" required>
+                    <input type="" name="email" class="form-control" placeholder="Enter Your Email" value="<%= user.email  %>" required>
                 </div>
                 <div class="form-group">
                     <label for="title">MatNumber:</label>
-                    <input type="text" name="matnumber" class="form-control" placeholder="Enter Your Matnumber"value="{{ user.matnumber}}"
+                    <input type="text" name="matnumber" class="form-control" placeholder="Enter Your Matnumber"value="<%= user.matnumber  %>"
                         required>
                 </div>
                 <div class="form-group">
                     <label for="title">School:</label>
-                    <input type="text" name="school" class="form-control" placeholder="Enter Your School" value="{{ user.school}}" required>
+                    <input type="text" name="school" class="form-control" placeholder="Enter Your School" value="<%= user.school  %>" required>
                 </div>
                 <div class="form-group">
                     <label for="title">Department:</label>
-                    <input type="text" name="department" class="form-control" placeholder="Enter Your Department"value="{{ user.department}}"
+                    <input type="text" name="department" class="form-control" placeholder="Enter Your Department"value="<%= user.department  %>"
                         >
                 </div>
                
               
-                <input type="hidden" name="_csrf" value="{{ csrfToken }}" >
+                <input type="hidden" name="_csrf" value="<%= csrfToken   %>" >
                 <input type="submit" value="UPDATE" class="btn btn-primary btn block col-md-12"><br><br>
                 
             </form>
