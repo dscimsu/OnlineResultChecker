@@ -76,6 +76,7 @@ router.get('/dashboard', isLoggedIn, function (req, res, next) {
     const cgpa = gpSum / arrayOfGp.length;
 
     let user = req.user;
+  
     res.render('user/dashboard', {csrfToken: req.csrfToken(),
       results: results, user: user, cgpa: cgpa, nocgpa: cgpa == null,
       messages: messages, hasErrors: messages.length > 0,
@@ -212,6 +213,7 @@ router.get('/logout', isLoggedIn, function (req, res, next) {
 
 router.get('/signin', isNotLoggedIn, function (req, res, next) {
   let messages = req.flash('error');
+  console.log(messages);
   res.render('user/signin', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
 });
 

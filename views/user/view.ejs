@@ -1,0 +1,52 @@
+<%- include('../includes/header.ejs') %>
+
+
+<div class="container" style="margin-top:250px; z-index: 100">
+    <% for (let i=0; i<  result.length; i++ )  { %>
+    <table class="table">
+        <tr class="thead-dark">
+            <th>Year</th>
+            <th>Level</th>
+            <th>Semester</th>
+            <th>Grade Point</th>
+        </tr>
+        <tr>
+            <td><%= result[i].year %></td>
+            <td><%= result[i].level %></td>
+            <td><%= result[i].semester %></td>
+            <td><%= result[i].gp %></td>
+        </tr>
+    </table>
+
+
+
+    <% } %>
+    <hr>
+    <div style='overflow-x:scroll;'>
+
+
+        <table class="table">
+            <tr class="thead-dark">
+                <% for (let i=0; i< resultKey.length; i++ )  { %>
+
+                <th><%= resultKey[i] %></th>
+
+
+                <% } %>
+            </tr>
+            <tr>
+                <% for (let i=0; i< resultData.length; i++ )  { %>
+
+                    <th><%= resultData[i] %></th>
+    
+    
+                    <% } %>
+                </tr>
+            </tr>
+        </table>
+        
+    </div>
+     <a class="btn btn-primary" href="/dashboard">Back</a>
+</div>
+
+<%- include('../includes/footer.ejs') %>

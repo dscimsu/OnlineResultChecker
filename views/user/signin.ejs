@@ -1,3 +1,5 @@
+<%- include('../includes/header.ejs') %>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-3  bg bg-primary hidebg">
@@ -14,16 +16,16 @@
             <br><br><br><br> <br>
             <div class="shadow p-5">
                 <div>
-                    {{#if hasErrors}}
+                    <% if (hasErrors) { %>
                     <div class="alert alert-danger">
                         <ul>
-                            {{# each messages }}
-                            <li>{{this}}</li>
-                            {{/each}}
+                            <% for (let i=0; i<  messages.length; i++ )  { %>
+                                <li><%= messages[i] %></li>
+                            <% } %>
                         </ul>
 
                     </div>
-                    {{/if}}
+                    <% } %>
                 </div>
                 <h3>
                     <center>Fill The Following Details</center>
@@ -41,7 +43,7 @@
                         <input type="password" name="password" class="form-control" placeholder="Password">
                     </div>
 
-                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <input type="submit" value="Sign In" class="btn btn-primary btn block col-md-12"><br><br>
                     <span></span><p>Dont have an account?<a href="/signup" id="mybtn">signup</a></p></span>
                 </form>
@@ -52,3 +54,6 @@
         <div class="col-md-2 col-md-offset-2"></div>
     </div>
 </div>
+
+
+<%- include('../includes/footer.ejs') %>

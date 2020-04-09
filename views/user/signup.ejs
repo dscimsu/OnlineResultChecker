@@ -1,4 +1,4 @@
-
+<%- include('../includes/header.ejs') %>
 
 
 
@@ -18,16 +18,16 @@
                     <center>Create An Account</center>
                 </h3>
                 <div>
-                    {{#if hasErrors}}
-                    <div class="alert alert-danger">
-                        <ul>
-                            {{# each messages }}
-                            <li>{{this}}</li>
-                            {{/each}}
-                        </ul>
-
-                    </div>
-                    {{/if}}
+                    <% if (hasErrors) { %>
+                        <div class="alert alert-danger">
+                            <ul>
+                                <% for (let i=0; i<  messages.length; i++ )  { %>
+                                    <li><%= messages[i] %></li>
+                                <% } %>
+                            </ul>
+    
+                        </div>
+                        <% } %>
                 </div>
                 <form action="/signup" method="POST">
                     <div class="form-group">
@@ -47,7 +47,7 @@
                         <input type="password" name="password2" class="form-control" placeholder="Confirm-Password"
                             required>
                     </div>
-                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <input type="submit" value="Sign Up" class="btn btn-primary btn block col-md-12"><br><br>
                     <p>Already have an account?<a href="/signin" id="mybtn">signin</a></p>
                 </form>
@@ -60,3 +60,6 @@
         <div class="col-md-2 col-md-offset-2"></div>
     </div>
 </div>
+
+
+<%- include('../includes/footer.ejs') %>
