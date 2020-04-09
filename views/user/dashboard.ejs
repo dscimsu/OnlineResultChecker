@@ -1,3 +1,5 @@
+<%- include('../includes/header.ejs') %>
+
 <style type="text/css">
     .avatar {
         border-radius: 100%;
@@ -15,8 +17,8 @@
                 <div class="col-md-4">
 
 
-                    <div id="primary" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
-                        {{successMsg}}
+                    <div id="primary" class="alert alert-success" <%= noMessages ? "hidden" : "">
+                        <%= successMsg %>
                     </div>
 
                     <div>
@@ -146,3 +148,5 @@
         </div>
     </div>
 </div>
+
+<%- include('../includes/footer.ejs') %>

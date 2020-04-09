@@ -92,7 +92,9 @@ app.use(indexRouter);
 
 
 // catch 404 and forward to error handler
-
+app.use(function(req, res, next) {
+  res.status(404).render('404');
+});
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -104,9 +106,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.use(function(req, res, next) {
-  res.status(404).render('404');
-  next(createError(404));
-});
+
 
 module.exports = app;
