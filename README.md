@@ -23,7 +23,7 @@ Set up your origin and upstream remotes by running the following commands
 ```bash
 git remote add origin https://github.com/{YOUR-GITHUB-USERNAME}/resultTracker.git
 
-git remote add upstream https://github.com/dscimsu/resultTracker.git
+git remote add upstream https://github.com/dscimsu/OnlineResultChecker.git
 
 ```
 
