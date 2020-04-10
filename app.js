@@ -14,7 +14,7 @@ const MongoStore = require("connect-mongo")(session);
 const cloudinary = require("cloudinary").v2;
 
 const pagesRouter = require("./routes/pages");
-const usersRouter = require("./routes/university");
+const universityRouter = require("./routes/university");
 
 const ENV = require("dotenv");
 ENV.config();
@@ -77,8 +77,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use("/", pagesRouter);
-app.use("/", usersRouter);
+app.use(pagesRouter);
+app.use("/university", universityRouter);
 
 
 // catch 404 and forward to error handler

@@ -3,8 +3,27 @@ let router = express.Router();
 let csrf = require('csurf');
 const universityController = require('../controllers/universityController');
 const passport = require('passport');
+let User = require('../models/user');
+const multer = require("multer");
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
+
+// for cloudinary setup for image upload
+const storage = cloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: "Profile",
+    allowedFormats: ["jpg", "png"],
+    transformation: [{ width: 500, height: 500, crop: "limit" }]
+});
+const parser = multer({ storage: storage });
+
+
+
 let csrfProtection = csrf();
 router.use(csrfProtection);
+
+
+
 
 
 
@@ -44,8 +63,46 @@ router.get('/edit', universityController.isLoggedIn, universityController.getEdi
 router.post('/edit', universityController.isLoggedIn, universityController.editUser);
 
 //route for uploading profile image 
-router.post('/upload', universityController.imageParser, universityController.isLoggedIn, universityController.uploadProfileImage );
+//router.post('/upload', universityController.imageParser, universityController.isLoggedIn, universityController.uploadProfileImage );
+router.post('/upload', parser.single("image"), universityController.isLoggedIn, function (req, res, next) {
 
+  User.findOne({ email: req.user.email }, function (err, user) {
+    // for cloudinary upload
+    //console.log(req.file) // to see what is returned to you
+
+    // todo: don't forget to handle err
+
+    if (err) {
+      req.flash('error', 'No account found');
+      return res.redirect('/university/edit');
+    }
+
+
+    if (!user) {
+      req.flash('error', 'No account found');
+      return res.redirect('/university/edit');
+    }
+    if (!req.file) {
+      req.flash('error', "No Image Selected");
+      return res.redirect('/university/dashboard');
+    }
+
+    user.image = req.file.url;
+
+    // don't forget to save!
+    user.save(function (err) {
+
+      // todo: don't forget to handle err
+      if (err) {
+        req.flash('error', 'Sorry error occured');
+        return res.redirect('/university/edit'); // modified
+      }
+      req.flash('success', 'Image Uploaded Successfully');
+      res.redirect('/university/dashboard');
+    });
+  });
+
+})
 
 
 //route for viewing individual user result

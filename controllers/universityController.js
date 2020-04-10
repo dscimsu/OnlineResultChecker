@@ -1,4 +1,4 @@
-let express = require('express');
+
 let Result = require('../models/result');
 let User = require('../models/user');
 const multer = require("multer");
@@ -34,7 +34,7 @@ exports.saveResultsToSession = (req, res, next) => {
     delete objectData._csrf;
     req.session.resultData = objectData;
     req.session.gp = req.body.gp;
-    res.redirect("save");
+    res.redirect("/university/save");
 }
 
 //saving the result to database
@@ -56,7 +56,7 @@ exports.saveResultsToDatabase = (req, res, next) => {
             req.flash("success", "Saved Successfully");
         }
 
-        res.redirect("/dashboard");
+        res.redirect("/university/dashboard");
     });
 }
 
@@ -81,7 +81,7 @@ exports.deleteResult = (req, res, next) => {
 
         });
     req.flash('error', 'Deleted Succefully');
-    res.redirect(307, '/dashboard');
+    res.redirect(307, '/university/dashboard');
 
 }
 
@@ -136,11 +136,11 @@ exports.editUser = (req, res, next) => {
         // todo: don't forget to handle err
         if (err) {
             req.flash('error', 'No account found');
-            return res.redirect('/edit');
+            return res.redirect('/university/edit');
         }
         if (!user) {
             req.flash('error', 'No account found');
-            return res.redirect('/edit');
+            return res.redirect('/university/edit');
         }
 
         // good idea to trim 
@@ -154,7 +154,7 @@ exports.editUser = (req, res, next) => {
         // validate 
         if (!email || !name || !matnumber || !school || !department) {
             req.flash('error', 'One or more fields are empty');
-            return res.redirect('/edit'); // modified
+            return res.redirect('/university/edit'); // modified
         }
 
         user.name = req.body.name;
@@ -168,10 +168,10 @@ exports.editUser = (req, res, next) => {
             // todo: don't forget to handle err
             if (err) {
                 req.flash('error', 'Sorry error occured');
-                return res.redirect('/edit'); // modified
+                return res.redirect('/university/edit'); // modified
             }
             req.flash('success', 'Profile Updated Successfully');
-            res.redirect('/dashboard');
+            res.redirect('/university/dashboard');
         });
     });
 
@@ -187,17 +187,17 @@ exports.uploadProfileImage = (req, res, next) => {
 
         if (err) {
             req.flash('error', 'No account found');
-            return res.redirect('/edit');
+            return res.redirect('/university/edit');
         }
 
 
         if (!user) {
             req.flash('error', 'No account found');
-            return res.redirect('/edit');
+            return res.redirect('/university/edit');
         }
         if (!req.file) {
             req.flash('error', "No Image Selected");
-            return res.redirect('/dashboard');
+            return res.redirect('/university/dashboard');
         }
 
         user.image = req.file.url;
@@ -208,10 +208,10 @@ exports.uploadProfileImage = (req, res, next) => {
             // todo: don't forget to handle err
             if (err) {
                 req.flash('error', 'Sorry error occured');
-                return res.redirect('/edit'); // modified
+                return res.redirect('/university/edit'); // modified
             }
             req.flash('success', 'Image Uploaded Successfully');
-            res.redirect('/dashboard');
+            res.redirect('/university/dashboard');
         });
     });
 
@@ -238,7 +238,7 @@ exports.viewIndividualResult = (req, res, next) => {
 //for loging the user out
 exports.logoutUser = (req, res, next) => {
     req.logout();
-    res.redirect('/');
+    res.redirect('/university/signin');
 }
 
 // for getting the sign up page
@@ -255,7 +255,7 @@ exports.normalRedirect = (req, res, next) => {
         req.session.oldUrl = null;
         res.redirect(oldLink);
     } else {
-        res.redirect('/dashboard');
+        res.redirect('/university/dashboard');
     }
 
 }
@@ -272,7 +272,7 @@ exports.isLoggedIn = (req, res, next) => {
         return next();
     }
     req.session.oldUrl = req.url;
-    res.redirect('/signin');
+    res.redirect('/university/signin');
 }
 
 
@@ -286,7 +286,8 @@ exports.isNotLoggedIn = (req, res, next) => {
 }
 
 
-exports.imageParser = ()=>{
+exports.imageParser = (next)=>{
 
-    return parser.single("image")
+ parser.single("image");
+    return next;
 }

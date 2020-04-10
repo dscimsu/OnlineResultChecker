@@ -29,7 +29,7 @@
                         </div>
                         <% } %>
                 </div>
-                <form action="/signup" method="POST">
+                <form action="/university/signup" method="POST">
                     <div class="form-group">
                         <label for="title">Name:</label>
                         <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required>
@@ -49,7 +49,7 @@
                     </div>
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <input type="submit" value="Sign Up" class="btn btn-primary btn block col-md-12"><br><br>
-                    <p>Already have an account?<a href="/signin" id="mybtn">signin</a></p>
+                    <p>Already have an account?<a href="/university/signin" id="mybtn">signin</a></p>
                 </form>
             </div>
 
