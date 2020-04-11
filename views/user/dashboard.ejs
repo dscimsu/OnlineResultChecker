@@ -5,15 +5,13 @@
         border-radius: 100%;
         max-width: 200px;
     }
+    
 </style>
-<div class="container-fluid" style="margin-top: 90px;">
-    <div class="row">
 
-    </div>
-
-    <div class="panel panel-default text-center">
-        <div class="panel-body">
-            <div class="row">
+<div class="container-fluid" style="margin-top: 90px;"> <!-- Container Starts Here-->
+    <div class="panel panel-default text-center"> <!-- Panel starts here-->
+        <div class="panel-body"> <!-- Panel Body Starts Here -->
+            <div class="row"> <!-- Main Row Starts Here-->
                 <div class="col-md-4">
 
                     <% if (successMsg) { %>
@@ -71,13 +69,22 @@
                         <hr>
                     </ul>
                 </div>
-                <!-- Main Area Starts Here -->
-                <div class="col-sm-8">
 
+                <!-- Main Area Starts Here -->
+                
+                <div class="col-sm-8">
+                    <div class="row">
+                        <span><a class='btn btn-primary' href="/university/edit">Edit Profile Details</a> </span>
+                        <hr>
+                        <span><a class='btn btn-primary' href="/university/app">Calculate Result</a> </span>
+                        <hr>
+                    </div>
+                    <hr>
+                 </div>
 
 
                     <% if (results) { %>
-                    <div class="row">
+                    <div class="row"> <!--Main Area Row Starts Here-->
                         <% for (let i=0; i<  results.length; i++ )  { %>
                         <div class="col-md-5 offset-md-1">
                             <h4 class="year-text"><%= results[i].level %></h4>
@@ -115,17 +122,9 @@
 
                         <% } %>
 
-                    </div>
-                    <div class="row">
-                        <span><a class='btn btn-primary' href="/university/edit">Edit Profile details</a> </span>
-                        <hr>
-                        <span><a class='btn btn-primary' href="/university/app">Calculate Result</a> </span>
-                        <hr>
-                    </div>
-                    <hr>
+                    </div> <!--Main Area Row Ends Here-->
 
-
-                </div>
+                    
                 <% } else { %>
                 <div class="jumbotron">
                     <h3>Welcome To Result Tracker
@@ -134,20 +133,21 @@
 
                 </div>
                 <div class="row">
-                    <span><a class='btn btn-primary' href="/university/edit">Edit Profilemmm details</a> </span>
+                    <span><a class='btn btn-primary' href="/university/edit">Edit Profile details</a> </span>
                     <hr>
                     <span><a class='btn btn-primary' href="/university/app">Calculate Result</a> </span>
                     <hr>
                 </div>
                 <hr>
-            </div>
+                
+                
+                <% } %>
+                <!-- Main Area Ends Here -->
+                
+            </div> <!-- Main Row Ends Here-->
+        </div> <!-- Panel Body Ends Here-->
+    </div> <!-- Panel Ends Here-->
+</div> <!-- Main Container Ends Here-->
 
-
-            <% } %>
-            <!-- Main Area Stops Here -->
-
-        </div>
-    </div>
-</div>
 
 <%- include('../includes/footer.ejs') %>
