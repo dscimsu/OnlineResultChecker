@@ -1,22 +1,18 @@
 // getting home page
 exports.getHomePage = (req, res, next) => {
-  res.render("index", { title: "ResultTracker" });
+  res.render("index", { path: "/" }); 
 };
 
 // getting contact page
 exports.getContactPage = (req, res, next) => {
-  res.render("contact");
+  res.render("contact",{path:'/contact'});
 };
 
 //getting about page
 exports.getAboutPage = (req, res, next) => {
-  res.render("about");
+  res.render("about", {path:'/about'});
 };
 
-//getting check result page
-exports.getCheckResultPage = (req, res, next) => {
-  res.render("checkresults", { title: "ResultTracker" });
-};
 
 //getting secondary school dashboard page
 exports.getSecDashboardPage = (req, res, next) => {
