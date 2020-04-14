@@ -1,6 +1,6 @@
 {
     "name": "ResultManager",
-    "short_name": "RM",
+    "short_name": "Result Manager",
     "start_url": ".",
     "display": "standalone",
     "orientation": "portrait",
