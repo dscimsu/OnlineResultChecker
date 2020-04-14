@@ -1,0 +1,125 @@
+<%- include('./includes/header.ejs') %>
+
+
+<div class="container-fluid" style="margin-top: 90px;"> <!-- Container Starts Here-->
+    <div class="panel panel-default text-center"> <!-- Panel starts here-->
+        <div class="panel-body"> <!-- Panel Body Starts Here -->
+
+    <div class="row"> <!-- Main Row Starts Here-->
+    <div class="col-md-4">
+
+        <div id="primary" class="alert alert-success"> 
+        </div>
+        <div>
+            <div class="alert alert-danger">
+                <ul>
+                    <li></li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!-- <img src="" width="100px" class="avatar" alt="No internet access"> -->
+        <img src="img/emptyimage.jpeg" width="100px" class="avatar" alt="Add Your picture">
+        <form method="post" action="" novalidate
+            enctype="multipart/form-data">
+            <div class="form-group">
+
+                <input type="file" name="image" required>
+            </div>
+            <input type="submit" value="Upload Image" class="btn btn-primary"><br><br>
+        </form>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h6>Lorem ipsum</h6>
+            </li>
+            <li class="list-group-item">
+                <h6>17/41280</h6>
+            </li>
+            <li class="list-group-item">
+                <h6>CGPA<button class='btn btn-primary'>
+                        No Grade Point</button>
+            </li>
+            </h6>
+            </li>
+            <hr>
+        </ul>
+    </div>
+    <!-- Main Area Starts Here -->
+    
+    <div class="col-sm-8"> 
+        <div class="row">
+            <span><a class='btn btn-primary' href="/university/edit">Edit Profile details</a> </span>
+            <hr>
+            <span><a class='btn btn-primary' href="/university/app">Calculate Result</a> </span>
+            <hr>
+        </div>
+
+        <div class="row">
+            
+            <div class="col-md-5 offset-md-1">
+                <h4 class="year-text"></h4>
+                <div class="card">
+                    <div class="card-block shadow p-5">
+
+                        <div>
+                            <h4></h4>
+                            <br>
+                            <h5>Your Grade Point:
+                                <span class="badge badge-primary"
+                                    style="font-size: large;"></span>
+                            </h5>
+                        </div>
+
+
+                        <div>
+                            <h5>
+                                <span class="btn btn-primary" style="float:left;margin-left:10px">
+                                    <a style="color:white;" href="">View</a>
+                                </span>
+                                <span class="btn btn-danger" style="float:right;margin-right:10px">
+                                    <a id="delete" style="color:white"
+                                        href="">Delete</a> </span>
+
+
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <!-- Main Area Stops Here -->
+
+        
+</div> <!-- Main Row Ends Here-->
+
+</div> <!-- Panel Body Ends Here -->
+</div> <!-- Panel Ends Here -->
+</div> <!-- Container Ends here-->
+
+
+
+<%- include('./includes/footer.ejs') %>
+
+            <!--
+                <div class="jumbotron">
+                    <h3>Welcome To Result Tracker
+                        <a href="/university/app">Click Here </a>To Start Tracking Your Results
+                    </h3>
+            
+                </div>
+                <div class="row">
+                    <span><a class='btn btn-primary' href="/university/edit">Edit Profilemmm details</a> </span>
+                    <hr>
+                    <span><a class='btn btn-primary' href="/university/app">Calculate Result</a> </span>
+                    <hr>
+                </div>
+                <hr>
+            -->

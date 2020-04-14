@@ -5,15 +5,13 @@
         border-radius: 100%;
         max-width: 200px;
     }
+    
 </style>
-<div class="container-fluid" style="margin-top: 90px;">
-    <div class="row">
 
-    </div>
-
-    <div class="panel panel-default text-center">
-        <div class="panel-body">
-            <div class="row">
+<div class="container-fluid" style="margin-top: 90px;"> <!-- Container Starts Here-->
+    <div class="panel panel-default text-center"> <!-- Panel starts here-->
+        <div class="panel-body"> <!-- Panel Body Starts Here -->
+            <div class="row"> <!-- Main Row Starts Here-->
                 <div class="col-md-4">
 
                     <% if (successMsg) { %>
@@ -40,13 +38,13 @@
                     <% } else { %>
                     <img src="img/emptyimage.jpeg" width="100px" class="avatar" alt="Add Your picture">
                     <% } %>
-                    <form method="post" action="/upload?_csrf=<%= csrfToken %>" novalidate
+                    <form method="post" action="/university/upload?_csrf=<%= csrfToken %>" novalidate
                         enctype="multipart/form-data">
                         <div class="form-group">
 
                             <input type="file" name="image" required>
                         </div>
-                        <input type="hidden" name="_csrf" value="{{ csrfToken }}" re>
+                        <!-- <input type="hidden" name="_csrf" value="<%= csrfToken %>" re> -->
                         <input type="submit" value="Upload Image" class="btn btn-primary"><br><br>
                     </form>
                     <ul class="list-group">
@@ -71,13 +69,23 @@
                         <hr>
                     </ul>
                 </div>
+
                 <!-- Main Area Starts Here -->
+                
                 <div class="col-sm-8">
+                    <!-- Edit and Calculate buttons starts here -->
+                    <div class="row">
+                        <span><a class='btn btn-primary' href="/university/edit">Edit Profile Details</a> </span>
+                        <hr>
+                        <span><a class='btn btn-primary' href="/university/app">Calculate Result</a> </span>
+                        <hr>
+                    </div>
+                    <!-- Edit and Calculate buttons stops here -->
 
 
 
                     <% if (results) { %>
-                    <div class="row">
+                    <div class="row"> <!--Main Area Row Starts Here-->
                         <% for (let i=0; i<  results.length; i++ )  { %>
                         <div class="col-md-5 offset-md-1">
                             <h4 class="year-text"><%= results[i].level %></h4>
@@ -97,11 +105,11 @@
                                     <div>
                                         <h5>
                                             <span class="btn btn-primary" style="float:left;margin-left:10px">
-                                                <a style="color:white;" href="/view/<%= results[i].id %>">View</a>
+                                                <a style="color:white;" href="/university/view/<%= results[i].id %>">View</a>
                                             </span>
                                             <span class="btn btn-danger" style="float:right;margin-right:10px">
                                                 <a id="delete" style="color:white"
-                                                    href="/delete/<%= results[i].id %>">Delete</a> </span>
+                                                    href="/university/delete/<%= results[i].id %>">Delete</a> </span>
 
 
                                         </h5>
@@ -113,41 +121,34 @@
                         </div>
 
 
-                        <% } %>
-
                     </div>
-                    <div class="row">
-                        <span><a class='btn btn-primary' href="/edit">Edit Profile details</a> </span>
-                        <hr>
-                        <span><a class='btn btn-primary' href="/app">Calculate Result</a> </span>
-                        <hr>
-                    </div>
-                    <hr>
+                    </div> <!--Main Area Row Ends Here-->
+                    <% } %>
 
-
-                </div>
+                    
                 <% } else { %>
                 <div class="jumbotron">
                     <h3>Welcome To Result Tracker
-                        <a href="/app">Click Here </a>To Start Tracking Your Results
+                        <a href="/university/app">Click Here </a>To Start Tracking Your Results
                     </h3>
 
                 </div>
                 <div class="row">
-                    <span><a class='btn btn-primary' href="/edit">Edit Profilemmm details</a> </span>
+                    <span><a class='btn btn-primary' href="/university/edit">Edit Profile details</a> </span>
                     <hr>
-                    <span><a class='btn btn-primary' href="/app">Calculate Result</a> </span>
+                    <span><a class='btn btn-primary' href="/university/app">Calculate Result</a> </span>
                     <hr>
                 </div>
                 <hr>
-            </div>
+                
+                
+                <% } %>
+                <!-- Main Area Ends Here -->
+                
+            </div> <!-- Main Row Ends Here-->
+        </div> <!-- Panel Body Ends Here-->
+    </div> <!-- Panel Ends Here-->
+</div> <!-- Main Container Ends Here-->
 
-
-            <% } %>
-            <!-- Main Area Stops Here -->
-
-        </div>
-    </div>
-</div>
 
 <%- include('../includes/footer.ejs') %>

@@ -2,14 +2,16 @@
 <html lang="en">
 
 <head>
+  
   <meta charset="utf-8">
-  <title>Result Tracker</title>
+  <title>Online result checker</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
   <link href="img/result.png" rel="icon">
+  <link rel="manifest" href="/manifest.json">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -46,17 +48,20 @@
 
 		<nav class="main-nav float-right d-none d-lg-block">
 			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/about">FAQS</a></li>
-				<li><a href="/contact">Contact Us</a></li>
-        <% if( isLogin ) { %>
-				<li><a href="/dashboard">Dashboard</a></li>
-				<li><a href="/logout" class="btn btn-danger">Logout</a></li>
-				<% } else { %>
-				<li><a class="btn btn-warning" href="/signup">SignUp</a></li>
-				<li><a href="/signin">SignIn</a></li>
+				<li><a class="<%= path === '/' ? 'btn btn-warning' : '' %>" href="/">Home</a></li>
+				<li><a class="<%= path === '/about' ? 'btn btn-warning' : '' %> " href="/about">FAQS</a></li>
+        <li><a class="<%= path === '/contact' ? 'btn btn-warning' : '' %>" href="/contact">Contact Us</a></li>
+        <% if( path === '/student/checkresults' ) { %>
+          <li><a class="<%= path === '/student/checkresults' ? 'btn btn-warning' : '' %>" href="/contact">Check Result</a></li>
         <% } %>
-				<ul>
+        <% if( isLogin ) { %>
+				<li><a class="<%= path === '/university/dashboard' ? 'btn btn-warning ' : '' %>" href="/university/dashboard">Dashboard</a></li>
+				<li><a href="/university/logout" class="btn btn-danger">Logout</a></li>
+				<% } else { %>
+				<li><a class="<%= path === '/university/signup' ? 'btn btn-warning' : '' %>" href="/university/signup">SignUp</a></li>
+				<li><a class="<%= path === '/university/signin' ? 'btn btn-warning' : '' %>" href="/university/signin">SignIn</a></li>
+        <% } %>
+				<ul> 
 
 				</ul>
 		</nav><!-- .main-nav -->

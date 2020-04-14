@@ -2,6 +2,15 @@
 (function () {
     //using strict mode
     'use strict';
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('../sw.js')
+            .then(function () {
+                console.log('Sw registered');
+            })
+    }
+
+
     let form = document.getElementById('form');
     let mainCard = document.getElementById('main');
     let resetbtn = document.getElementById('reset');
@@ -205,8 +214,10 @@
                     display.innerHTML = ` GRADE POINT: ${mgp}`;
                 }
                 else {
-                    let style = { margin: '5px', border: '2px solid black', padding: '24px', borderRadius: '12px', color: 'white', 
-                    backgroundColor: 'red' }
+                    let style = {
+                        margin: '5px', border: '2px solid black', padding: '24px', borderRadius: '12px', color: 'white',
+                        backgroundColor: 'red'
+                    }
                     Object.entries(style).map(entry => {
                         let [property, value] = entry;
                         console.log([property, value])
