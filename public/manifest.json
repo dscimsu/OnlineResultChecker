@@ -1,7 +1,7 @@
 {
     "name": "ResultManager",
     "short_name": "ResultManager",
-    "start_url": "/",
+    "start_url": ".",
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#ccc",
