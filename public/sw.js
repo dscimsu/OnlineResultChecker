@@ -12,7 +12,6 @@ self.addEventListener('install', function (event) {
                     '/',
                     '/contact',
                     '/about',
-                    '/404',
                     '/university/signup',
                     '/university/signin',
                     '/university/app',
