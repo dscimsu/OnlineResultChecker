@@ -1,6 +1,6 @@
 {
-    "name": "Online Result Checker",
-    "short_name": "ORC",
+    "name": "ResultManager",
+    "short_name": "RM",
     "start_url": ".",
     "display": "standalone",
     "orientation": "portrait",
