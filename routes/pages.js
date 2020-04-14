@@ -11,8 +11,6 @@ router.get("/contact", pagesController.getContactPage);
 //about FAQ route
 router.get("/about", pagesController.getAboutPage);
 
-
-
 // Secondary School Dashboard route
 router.get("/secdashboard", pagesController.getSecDashboardPage);
 
