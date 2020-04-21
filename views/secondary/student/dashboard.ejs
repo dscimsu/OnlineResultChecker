@@ -1,0 +1,222 @@
+<%- include('../../includes/header.ejs') %>
+
+<div class="container-fluid" style="margin-top: 90px;">
+  <!-- Container Starts Here-->
+  <div class="panel panel-default text-center">
+    <!-- Panel starts here-->
+    <div class="panel-body">
+      <!-- Panel Body Starts Here -->
+
+      <div class="row">
+        <!-- Main Row Starts Here-->
+        <div class="col-md-4 ml-3">
+          <!-- Left column starts here-->
+          <header class="section-header text-left">
+            <h4 class="font-weight-bold">
+              Welcome To Your Dashboard. What Would You Like To Do?
+            </h4>
+          </header>
+
+          <div class="d-flex justify-content-between">
+            <div class="p-2">
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                data-toggle="modal"
+                data-target="#myModal"
+              >
+                Calculate GPA
+              </button>
+              <!-- Calculate GPA Modal Starts Here -->
+              <div class="modal" id="myModal">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="myModalLabel">
+                        Enter Your Number Of Courses
+                      </h4>
+                      <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                      </button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <form action="">
+                        <input type="number" class="form-control" />
+                        <button class="btn btn-primary btn-lg"></button>
+                      </form>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal Ends here -->
+            </div>
+            <div class="p-2">
+              <a href="" class="btn btn-outline-success"> Register Courses</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left column stops here-->
+
+        <!-- Main Area Starts Here -->
+
+        <!-- Scoreboard Column Starts Here-->
+        <div class="offset-md-1 col-md-6">
+          <div class="border rounded bg-primary p-3">
+            <!-- Scoreboard Starts Here-->
+            <h5 class="font-weight-bold text-white text-left mt-4 ml-4">
+              Calculated GPA
+            </h5>
+            <div class="d-flex flex-row justify-content-between">
+              <div class="p-3">
+                <h3 class="text-white font-weight-bold">4.55</h3>
+                <a href="" class="btn btn-success">Previous</a>
+              </div>
+              <div class="p-3">
+                <h3 class="text-white font-weight-bold">4.55</h3>
+                <a href="" class="btn btn-warning">Current</a>
+              </div>
+              <div class="p-3">
+                <h3 class="text-white font-weight-bold">4.55</h3>
+                <a href="" class="btn btn-secondary">Cummulative</a>
+              </div>
+            </div>
+          </div>
+          <!-- Scoreboard Stops Here-->
+        </div>
+        <!-- scoreboard Column ends here-->
+        <!-- Main Area Stops Here -->
+      </div>
+      <!-- Main Row Ends Here-->
+      <br />
+      <div class="row">
+        <div class="col-md-4">
+          <p class="text-primary font-weight-bold">
+            Registered Courses Per Semester
+          </p>
+          <p class="">
+            Specify Semester
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-8">
+          <form class="form-inline" action="/action_page.php">
+            <label for="" class="mr-sm-2">Semester</label>
+            <input
+              type="number"
+              class="form-control mb-2 mr-sm-2"
+              id=""
+              max="2"
+            />
+            <label for="" class="mr-sm-2">Session Date</label>
+            <input type="number" class="form-control mb-2 mr-sm-2" id="pwd" />
+
+            <button type="submit" class="btn btn-primary mb-2">Done</button>
+          </form>
+        </div>
+      </div>
+      <br />
+      <!-- Course Table Row STarts Here -->
+      <div class="row">
+        <div class="offset-md-2 col-md-7">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Course Code</th>
+                <th scope="col">Course Title</th>
+                <th scope="col">Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>MTH 204</td>
+                <td>Mathematics</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>MTH 204</td>
+                <td>Mathematics</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>MTH 204</td>
+                <td>Mathematics</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>MTH 204</td>
+                <td>Mathematics</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>MTH 204</td>
+                <td>Mathematics</td>
+                <td>2</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr />
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">&lsaquo;</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">&rsaquo;</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-1 col-md-7">
+          <div class="d-flex flex-row justify-content-around">
+            <div class="">
+              <p class="font-weight-bold">Download Format:</p>
+            </div>
+            <div class="">
+              <button type="button" class="btn btn-light btn-block border">
+                Excel
+              </button>
+            </div>
+            <div class="">
+              <button type="button" class="btn btn-primary btn-block">
+                Export
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Course Table Row Starts Here -->
+    </div>
+    <!-- Panel Body Ends Here -->
+  </div>
+  <!-- Panel Ends Here -->
+</div>
+<!-- Container Ends here-->

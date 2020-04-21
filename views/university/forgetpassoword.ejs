@@ -1,17 +1,18 @@
-<%- include('includes/header.ejs') %>
+<%- include('../includes/header.ejs') %>
 <main id="main">
     <section id="about" style="margin-top:40px; ">
         <div class="container" >
             <header class="section-header" id="main-header" >
-                <h3 id="header-title">Oops!</h3>
+                <h3 id="header-title">Forget Password?</h3>
             </header>
             <div class="row about-container" >
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div>
-                        <p class="text-center">Something went wrong... We couldn't find what you were looking for. You can go back to the Homepage</p>
-                        <img src="img/404.png" class="img-fluid img-responsive" alt="404 error">
-                        <a href="/" class="btn btn-primary btn-block btn-lg mt-5">Back To Homepage</a>
+                        <form action="/forgetpassword" method="post">
+
+                            <a href="/" class="btn btn-primary btn-block btn-lg mt-5">Submit</a>
+                        </form>
                     </div>
                     
                     </div>
@@ -23,4 +24,4 @@
 
 </main>
     
-<%- include('includes/footer.ejs') %>
+<%- include('../includes/footer.ejs') %>
