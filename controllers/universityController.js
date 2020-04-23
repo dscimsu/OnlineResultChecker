@@ -54,9 +54,8 @@ exports.saveResultsToDatabase = (req, res, next) => {
             req.session.gp = null;
             req.flash("success", "Saved Successfully");
         }
-
-        res.redirect("/university/dashboard");
     });
+    res.redirect("/university/dashboard");
 }
 
 //getting the delete form with user data to be deleted
@@ -108,7 +107,7 @@ exports.getDashboard = (req, res, next) => {
 
         let user = req.user;
 
-        res.render('university/dashboard', {
+        res.render('university/dash', {
             csrfToken: req.csrfToken(),
             results: results,
             user: user,

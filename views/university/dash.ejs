@@ -1,0 +1,213 @@
+<%- include('../includes/header.ejs') %>
+<style>
+    .avatar {
+        border-radius: 200%;
+        max-width: 100px;
+        max-height: 120px;
+    }
+</style>
+
+
+<div class="container-fluid" style="margin-top: 90px;">
+    <!-- Container Starts Here-->
+    <div class="panel panel-default text-center">
+        <!-- Panel starts here-->
+        <div class="panel-body">
+            <!-- Panel Body Starts Here -->
+            <div class="row">
+                <!-- Main Row Starts Here-->
+                <div class="col-md-4">
+                    <header class="section-header text-left">
+                        <h4 class="font-weight-bold">
+                            <% if (successMsg) { %>
+                            <div id="primary" class="alert alert-success">
+                                <%= successMsg %>
+                            </div>
+                            <% } %>
+                            <div>
+                                <% if (hasErrors) { %>
+                                <div class="alert alert-danger">
+                                    <ul style="list-style: none;">
+                                        <% for (let i=0; i<  messages.length; i++ )  { %>
+                                        <li><%= messages[i] %></li>
+                                        <% } %>
+                                    </ul>
+
+                                </div>
+                                <% } %>
+                            </div>
+                        </h4>
+                    </header>
+
+                    <div>
+                        <% if (user.image) { %>
+                        <img src="<%= user.image %>" width="100px" class="avatar" alt="No internet access">
+                        <% } else { %>
+                        <img src="/img/emptyimage.jpeg" width="100px" class="avatar" alt="Add Your picture">
+                        <% } %>
+                        <form method="post" action="/university/upload?_csrf=<%= csrfToken %>" novalidate
+                            enctype="multipart/form-data">
+                            <div class="form-group">
+
+                                <input type="file" name="image" required>
+                            </div>
+                            <!-- <input type="hidden" name="_csrf" value="<%= csrfToken %>" re> -->
+                            <input type="submit" value="Upload Image" class="btn btn-primary"><br><br>
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-8">
+
+                    <div class="border rounded bg-primary p-3">
+                        <!-- Scoreboard Starts Here-->
+                        <h5 class="font-weight-bold  text-center text-white text-left mt-4 ml-4">
+                            GRADE POINT SCORE BOARD
+                        </h5>
+                                <h5 style="color: white;"><%= user.name %></h6>
+                            <% if (user.matnumber) { %>
+                                <h5 style="color: white;"><%= user.matnumber %></h6>
+                          
+                            <% } %>
+                           
+                           
+                        
+                        <div class="d-flex flex-row justify-center">
+                            <div class="p-3">
+                                <h3 class="text-white font-weight-bold"><% if (cgpa) { %>
+                                    <%= cgpa %>
+                                    <% } else { %>
+                                    No Grade Point
+                                    <% } %></h3>
+                                <a href="" class="btn btn-warning">Current</a>
+                            </div>
+                            
+                            <div class="p-3">
+                                <h3 class="text-white font-weight-bold"><% if (cgpa) { %>
+                                    <%= cgpa %>
+                                    <% } else { %>
+                                    No Grade Point
+                                    <% } %></h3>
+                                <a href="" class="btn btn-success">Cummulative</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="p-2">
+
+                            <a class="btn btn-outline-primary" href="/university/app">Calculate GP</a>
+
+
+                        </div>
+                        <div class="p-2">
+                            <a href="/university/edit" class="btn btn-outline-success">Edith Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+       <div class="col-md-8">
+        <form class="form-inline" action="/action_page.php">
+            <label for="" class="mr-sm-2">Semester</label>
+            <input type="text" placeholder="search by semester" class="form-control mb-2 mr-sm-2" id="" max="2" />
+            <label for="" class="mr-sm-2">Level</label>
+            <input type="text" placeholder="search by level" class="form-control mb-2 mr-sm-2" id="pwd" />
+
+            <button type="submit" class="btn btn-primary mb-2">Done</button>
+        </form>
+       </div>
+        <div class="col-md-4">
+            <% if (user.matnumber) { %>
+                <h5 style="color: blue;"><%= user.department %></h6>
+          
+            <% } %>
+        </div>
+       
+    </div>
+
+
+    <div class="row">
+        <div class="offset-md-2 col-md-7">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+
+                        <th scope="col">Level</th>
+                        <th scope="col">Semester</th>
+                        <th scope="col">GP</th>
+                        <th scope="col">View</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (results) { %>
+                    <% for (let i=0; i<  results.length; i++ )  { %>
+                    <tr>
+
+                        <td><%= results[i].level %></td>
+                        <td><%= results[i].semester %></td>
+                        <td><%= results[i].gp %></td>
+                        <td> <a style="color:blue;" href="/university/view/<%= results[i].id %>">
+                                view</a></td>
+                        <td><a style="color:red" href="/university/delete/<%= results[i].id %>">delete</a>
+                            </span>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <% }  %>
+            
+                    <h6>Welcome To Result Tracker
+                        <a href="/university/app">Click Here </a>To Start Tracking Your Results
+                    </h6>
+                
+            <hr />
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">&lsaquo;</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">&rsaquo;</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="offset-md-1 col-md-7">
+            <div class="d-flex flex-row justify-content-around">
+                <div class="">
+                    <p class="font-weight-bold">Download Format:</p>
+                </div>
+                <div class="">
+                    <button type="button" class="btn btn-light btn-block border">
+                        Excel
+                    </button>
+                </div>
+                <div class="">
+                    <button type="button" class="btn btn-primary btn-block">
+                        Export
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
