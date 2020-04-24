@@ -12,8 +12,6 @@ self.addEventListener('install', function (event) {
                     '/',
                     '/contact',
                     '/about',
-                    '/university/signup',
-                    '/university/signin',
                     '/university/app',
                     '/manifest.json',
                     '/img/result.png',
