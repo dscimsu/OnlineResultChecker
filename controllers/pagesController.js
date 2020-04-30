@@ -15,5 +15,5 @@ exports.getAboutPage = (req, res, next) => {
 
 //getting secondary school dashboard page
 exports.getSecDashboardPage = (req, res, next) => {
-  res.render("secdashboard", { title: "ResultTracker" });
+  res.render("secdashboard", { title: "ResultManager" });
 };

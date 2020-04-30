@@ -111,7 +111,7 @@ exports.getDashboard = (req, res, next) => {
             csrfToken: req.csrfToken(),
             results: results,
             user: user,
-            cgpa: cgpa,
+            cgpa: Math.round(cgpa * 100) / 100,
             nocgpa: cgpa == null,
             messages: messages,
             hasErrors: messages.length > 0,

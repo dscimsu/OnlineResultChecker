@@ -4,7 +4,7 @@
 <head>
   
   <meta charset="utf-8">
-  <title>Online Result Tracker</title>
+  <title>Result Manager</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -42,8 +42,8 @@
 	<div class="container">
 
 		<div class="logo float-left">
-			 <!--<h4 class="text-light"><a href="#header"><span>Result Tracker</span></a></h4> -->
-			 <a href="#intro" class="scrollto"><img src="/img/logo.png" alt="" class="img-fluid"></a>
+			 <!--<h4 class="text-light"><a href="#header"><span>Result Manager</span></a></h4> -->
+			 <a href="/" class="scrollto"><img src="/img/logo.png" alt="" class="img-fluid"></a>
 		</div>
 
 		<nav class="main-nav float-right d-none d-lg-block">
@@ -56,7 +56,7 @@
         <% } %>
         <% if( isLogin ) { %>
 				<li><a class="<%= path === '/university/dashboard' ? ' ' : '' %>" href="/university/dashboard">Dashboard</a></li>
-				<li><a href="/university/logout" class="btn btn-danger">Logout</a></li>
+				<li><a href="/university/logout" class="">Logout</a></li>
 				<% } else { %>
 				<li><a class="<%= path === '/university/signup' ? 'btn btn-warning' : '' %>" href="/university/signup">SignUp</a></li>
 				<li><a class="<%= path === '/university/signin' ? 'btn btn-warning' : '' %>" href="/university/signin">SignIn</a></li>

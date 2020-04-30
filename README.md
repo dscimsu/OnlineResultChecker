@@ -9,9 +9,9 @@ To set up this project, first fork this repositiory to your own account
 ```bash
 Locate fork button and click on it.
 ```
-Then go to your desktop and create a folder, name it resultTracker.
+Then go to your desktop and create a folder, name it ResultManager.
 
-Open the folder (resultTracker), right click and select the option gitbash here (ensure you have git installed).
+Open the folder (ResultManager), right click and select the option gitbash here (ensure you have git installed).
 
 Then run all the commands in the git terminal that will open.
 
@@ -21,7 +21,7 @@ git init
 ```
 Set up your origin and upstream remotes by running the following commands
 ```bash
-git remote add origin https://github.com/{YOUR-GITHUB-USERNAME}/resultTracker.git
+git remote add origin https://github.com/{YOUR-GITHUB-USERNAME}/ResultManager.git
 
 git remote add upstream https://github.com/dscimsu/OnlineResultChecker.git
 
